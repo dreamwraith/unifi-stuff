@@ -3,6 +3,9 @@
 ## Overview
 This script resolves a common issue on UniFi gateways (UXG, UDM, UGC) where IPv6 clients do not register hostnames in DNS. It automatically injects `ra-names` and `domain` directives into the generated `dnsmasq` configuration, enabling full FQDN resolution (e.g., `host.myhome.internal`) for IPv6 devices.
 
+### DHCPv6 Note
+I utilize dual DHCPv6 / SLAAC for my purposes / older windows clients. If you think you just need slaac/ra-names, you could change this slightly to accomodate those differences in the config file layout. I will maybe post a working version of that at a later date.
+
 ## Prerequisites
 1. **UniFi Network Settings:**
    - IPv6 Interface Type: **Static** or **Prefix Delegation**
