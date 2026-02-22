@@ -1,13 +1,14 @@
 #!/bin/sh
 
-# Requires DHCPv6 enabled in the interface, with allow slaac also enabled.
-# Net result is that this adds ra-names after the slaac directive, and
-# Also adds the domain name to the configuration for DNS for IPv6.
-# End result is properly working hostname dns for internal network hosts with fqdn.
+# PREREQUISITES: Interface must have DHCPv6 and SLAAC enabled.
+# FUNCTION: Injects 'ra-names' and 'domain' directives to enable IPv6 FQDN resolution.
+# BEHAVIOR: Idempotent. Checks for missing settings and only restarts dnsmasq if a patch is applied.
+# USAGE: Designed for a 1-minute cron job. Auto-heals configuration after reboots or provisioning.
 
 # 1. Parse Arguments
 # $1 = The target config file path (Required)
 # $2 = The local domain (Optional, defaults to 'myhome.local')
+
 TARGET="$1"
 DOMAIN="${2:-myhome.local}" 
 NEEDS_RESTART=0
