@@ -1,7 +1,7 @@
 # UniFi DNSMasq IPv6 Patcher
 
 ## Overview
-This script resolves a common issue on UniFi gateways (UXG, UDM, UGC) where IPv6 clients do not register hostnames in DNS. It automatically injects `ra-names` and `domain` directives into the generated `dnsmasq` configuration, enabling full FQDN resolution (e.g., `host.myhome.local`) for IPv6 devices.
+This script resolves a common issue on UniFi gateways (UXG, UDM, UGC) where IPv6 clients do not register hostnames in DNS. It automatically injects `ra-names` and `domain` directives into the generated `dnsmasq` configuration, enabling full FQDN resolution (e.g., `host.myhome.internal`) for IPv6 devices.
 
 ## Prerequisites
 1. **UniFi Network Settings:**
@@ -23,12 +23,12 @@ This script resolves a common issue on UniFi gateways (UXG, UDM, UGC) where IPv6
 # Run every minute
 # Syntax: /path/to/script <CONFIG_FILE> <DOMAIN_NAME>
 
-# 1. Main Network (Default domain myhome.local)
-* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Main_IPV6.conf myhome.local
+# 1. Main Network (Default domain myhome.internal)
+* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Main_IPV6.conf myhome.internal
 
-# 2. IoT Network (Custom domain iot.myhome.local)
-* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_IoT_IPV6.conf iot.myhome.local
+# 2. IoT Network (Custom domain iot.myhome.internal)
+* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_IoT_IPV6.conf iot.myhome.internal
 
-# 3. Guest Network (Custom domain guest.myhome.local)
-* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Guest_IPV6.conf guest.myhome.local
+# 3. Guest Network (Custom domain guest.myhome.internal)
+* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Guest_IPV6.conf guest.myhome.internal
 ```
