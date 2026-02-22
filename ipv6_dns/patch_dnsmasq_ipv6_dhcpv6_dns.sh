@@ -7,10 +7,10 @@
 
 # 1. Parse Arguments
 # $1 = The target config file path (Required)
-# $2 = The local domain (Optional, defaults to 'myhome.local')
+# $2 = The local domain (Optional, defaults to 'myhome.internal')
 
 TARGET="$1"
-DOMAIN="${2:-myhome.local}" 
+DOMAIN="${2:-myhome.internal}" 
 NEEDS_RESTART=0
 
 # 2. Validation: Ensure a target file was provided
