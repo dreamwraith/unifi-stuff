@@ -24,11 +24,11 @@ This script resolves a common issue on UniFi gateways (UXG, UDM, UGC) where IPv6
 # Syntax: /path/to/script <CONFIG_FILE> <DOMAIN_NAME>
 
 # 1. Main Network (Default domain myhome.local)
-* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Main_IPV6.conf
+* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Main_IPV6.conf myhome.local
 
 # 2. IoT Network (Custom domain iot.myhome.local)
-* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_IoT_IPV6.conf iot.wiles.link
+* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_IoT_IPV6.conf iot.myhome.local
 
 # 3. Guest Network (Custom domain guest.myhome.local)
-* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Guest_IPV6.conf guest.lan
+* * * * * /volume1/custom_scripts/patch_dnsmasq_ipv6_dhcpv6_dns.sh /run/dnsmasq.dhcp.conf.d/dhcp.dhcpServers-net_Guest_IPV6.conf guest.myhome.local
 ```
